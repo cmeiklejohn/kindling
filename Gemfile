@@ -20,14 +20,15 @@ gem 'foreman'
 
 group :development, :test do 
   gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-bundler'
+  gem 'guard-rails-assets'
 end
 
 group :test do 
   gem 'capybara-webkit'
   gem 'cucumber-rails', '~> 1.1.1'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-bundler'
   gem 'database_cleaner'
 end
