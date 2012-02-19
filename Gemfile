@@ -19,6 +19,7 @@ gem 'inherited_resources'
 gem 'foreman'
 
 gem 'devise'
+gem 'omniauth'
 
 group :development, :test do 
   gem 'rspec-rails'
