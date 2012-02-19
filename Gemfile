@@ -28,10 +28,12 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-bundler'
   gem 'guard-rails-assets'
+  gem 'factory_girl_rails'
 end
 
 group :test do 
   gem 'capybara-webkit'
   gem 'cucumber-rails', '~> 1.1.1'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
