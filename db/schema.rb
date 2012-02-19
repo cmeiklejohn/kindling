@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120219184956) do
     t.text     "body"
     t.integer  "item_id"
     t.boolean  "processed",  :default => false
+    t.boolean  "rejected",   :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :item_ownerships
   has_many :items, :through => :item_ownerships
+
+  def acquire!(item)
+    items << item
+  end
 end

@@ -5,6 +5,7 @@ class CreateReceipts < ActiveRecord::Migration
       t.text :body
       t.integer :item_id
       t.boolean :processed, :default => false
+      t.boolean :rejected, :default => false
       t.timestamps
     end
 
