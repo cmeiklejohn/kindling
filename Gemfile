@@ -21,6 +21,8 @@ gem 'foreman'
 gem 'devise'
 gem 'omniauth'
 
+gem 'slim'
+
 group :development, :test do 
   gem 'rspec-rails'
   gem 'guard'
