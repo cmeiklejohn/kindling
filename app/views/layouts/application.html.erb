@@ -38,7 +38,7 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <% if current_user %>
-                <li><%= link_to "My Items", "#" %></li>
+                <li><%= link_to "My Items", user_items_path(current_user) %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <% else %>
                 <li><%= link_to "Sign In", new_user_session_path %></li>
@@ -75,8 +75,10 @@
           </div>
         </div>
 
+      <hr /> 
+
       <footer>
-        <p>&copy; Christopher Meiklejohn 2012</p>
+        <p>&copy; <a href="http://github.com/cmeiklejohn">Christopher Meiklejohn</a> 2012</p>
       </footer>
 
     </div> <!-- /container -->
