@@ -31,7 +31,7 @@ module ReceiptProcessor
   end
 
   def self.strip_tags_and_tokens(line)
-    line.gsub(/<\/?[^>]*>/, "").gsub(TOKEN, "").chomp.strip.tap { |x| puts "returning #{x}" }
+    line.gsub(/<\/?[^>]*>/, "").gsub(TOKEN, "").chomp.strip
   end
 
 end
