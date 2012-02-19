@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -36,6 +37,10 @@ begin
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
+
+# Load factories.
+require 'factory_girl_rails'
+Dir.glob(File.join(File.dirname(__FILE__), '../../spec/support/factories/*.rb')).each {|f| require f }
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:

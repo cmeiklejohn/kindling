@@ -1,5 +1,5 @@
 Given /^a registered user$/ do
-  pending # express the regexp above with the code you wish you had
+  @user = Factory.create(:user)
 end
 
 Given /^a valid receipt from Amazon for an ebook for that user$/ do
