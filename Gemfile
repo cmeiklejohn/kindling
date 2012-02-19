@@ -17,6 +17,8 @@ end
 gem 'jquery-rails'
 gem 'pjax-rails'
 
+gem 'foreman'
+
 group :development, :test do 
   gem 'rspec-rails'
 end
