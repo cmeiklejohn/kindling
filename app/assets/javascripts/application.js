@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require pjax
+//= require twitter/bootstrap
 //= require_tree .
