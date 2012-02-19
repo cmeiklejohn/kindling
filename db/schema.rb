@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219181947) do
+ActiveRecord::Schema.define(:version => 20120219184956) do
 
   create_table "item_ownerships", :force => true do |t|
     t.integer  "item_id"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(:version => 20120219181947) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "receipts", :force => true do |t|
+    t.string   "email"
+    t.text     "body"
+    t.integer  "item_id"
+    t.boolean  "processed",  :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "receipts", ["item_id"], :name => "index_receipts_on_item_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
