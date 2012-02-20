@@ -3,7 +3,7 @@ When /^I follow the sign up link$/ do
 end
 
 When /^I fill out the sign up form$/ do
-  @email    = 'christopher.meiklejohn@gmail.com'
+  @email    = 'user@example.com'
   @password = '12345678'
 
   fill_in 'Email', :with => @email
@@ -48,7 +48,7 @@ When /^I follow the sign out link$/ do
 end
 
 Given /^I am a registered user$/ do
-  @email    = 'christopher.meiklejohn@gmail.com'
+  @email    = 'user@example.com'
   @password = '12345678'
   @user     = Factory(:user, :email => @email, :password => @password)
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do 
   factory :receipt do 
-    email 'christopher.meiklejohn@gmail.com'
+    email 'user@example.com'
     processed false
     body 'receipt body'
     item 
