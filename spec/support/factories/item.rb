@@ -1,5 +1,5 @@
 FactoryGirl.define do 
   factory :item do 
-    title 'The title'
+    sequence(:title) { |counter| "The Book, Version #{counter}" }
   end
 end

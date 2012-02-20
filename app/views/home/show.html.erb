@@ -1,7 +1,30 @@
-<h2 class="page-header">Welcome to Kindling!</h2>
+<header class="jumbotron subhead" id="overview">
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li class="active"><a href="#about">About</a></li>
+      <% if current_user %>
+        <li><a href="#bookshelf">Bookshelf</a></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
 
-<h3>About</h3>
+<section id="about">
+  <div class="page-header"><h2>About</h2></div>
 
-<p>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-</p>
+  <p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+  </p>
+</section>
+
+<% if current_user %>
+  <section id="bookshelf">
+    <div class="page-header"><h2>Bookshelf</h2></div>
+
+    <ul>
+      <% current_user.items.each do |item| %>
+        <li><%= item.title %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

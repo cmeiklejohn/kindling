@@ -1,26 +1,12 @@
 Feature: Homepage
 
-  Background:
-    When I go to the home page
-
   Scenario: Show the homepage
-    Then I should see the title
+    When I go to the home page
+    Then I should see the about section
+    And I should not see the bookshelf section
 
-  Scenario: Sign up
-    When I follow the sign up link
-    And I fill out the sign up form
-    Then I should be signed up
-    And I should be logged in
-
-  Scenario: Sign in
-    Given I am a registered user
-    When I follow the sign in link
-    And I fill out the sign in form
-    Then I should be signed in
-
-  Scenario: Sign out
-    Given I am a registered user
-    When I follow the sign in link
-    And I fill out the sign in form
-    And I follow the sign out link
-    Then I should be signed out
+  Scenario: View my bookshelf
+    Given I am signed in
+    And I have a bunch of books in my bookshelf
+    When I go to the home page
+    Then I should see my bookshelf containing those books
