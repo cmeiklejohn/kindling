@@ -21,7 +21,7 @@ gem 'foreman'
 gem 'devise'
 gem 'omniauth'
 
-gem 'mailman', :require => false
+gem 'mailman'
 
 gem 'slim'
 gem 'less'

@@ -4,6 +4,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-task :default => [:cucumber, :spec]
+task :default => [:spec, :cucumber]
 
 Kindling::Application.load_tasks

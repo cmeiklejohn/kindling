@@ -18,4 +18,10 @@ class Receipt < ActiveRecord::Base
   def for_item!(item_id)
     update_attribute(:item_id, item_id)
   end
+
+  def self.receive(message)
+    if receipt = self.find_or_create_by_email_and_body(message.from.first, message.body.decoded)
+      ReceiptProcessor.perform(receipt.id)
+    end
+  end
 end
