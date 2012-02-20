@@ -21,6 +21,8 @@ gem 'foreman'
 gem 'devise'
 gem 'omniauth'
 
+gem 'mailman', :require => false
+
 gem 'slim'
 gem 'less'
 gem 'twitter-bootstrap-rails'
