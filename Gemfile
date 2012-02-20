@@ -19,6 +19,7 @@ gem 'pjax-rails'
 gem 'inherited_resources'
 
 gem 'foreman'
+gem 'unicorn'
 
 gem 'devise'
 gem 'omniauth'
