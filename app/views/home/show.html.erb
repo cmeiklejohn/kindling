@@ -1,20 +1,22 @@
-<header class="jumbotron subhead" id="overview">
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li class="active"><a href="#about">About</a></li>
-      <% if current_user %>
+<% if current_user %>
+  <header class="jumbotron subhead" id="overview">
+    <div class="subnav">
+      <ul class="nav nav-pills">
+        <li class="active"><a href="#about">About</a></li>
         <li><a href="#bookshelf">Bookshelf</a></li>
-      <% end %>
-    </ul>
-  </div>
-</header>
+      </ul>
+    </div>
+  </header>
+<% end %>
 
 <section id="about">
-  <div class="page-header"><h2>About</h2></div>
+  <div class="page-header"><h2>About Kindling</h2></div>
 
-  <p>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-  </p>
+  <p>Kindling provides a simple platform for organizing and sharing your kindle purchases, just by forwarding your Amazon receipts to our service.  No more manually selecting your books, no finding the right cover art, no more hassles!</p>
+
+  <h3>How to use!</h3>
+
+  <p>Simply forward your receipt to receipts@kindling.io after registering your e-mail account.</p>
 </section>
 
 <% if current_user %>
