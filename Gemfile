@@ -27,6 +27,8 @@ gem 'slim'
 gem 'less'
 gem 'twitter-bootstrap-rails'
 
+gem 'kumade'
+
 group :development, :test do 
   gem 'rspec-rails'
   gem 'guard'
