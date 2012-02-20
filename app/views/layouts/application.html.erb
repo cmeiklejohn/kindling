@@ -38,7 +38,6 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <% if current_user %>
-                <li><%= link_to "My Items", user_items_path(current_user) %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <% else %>
                 <li><%= link_to "Sign In", new_user_session_path %></li>
@@ -53,25 +52,13 @@
     <div class="container">
         <div class="content">
           <div class="row">
-            <div class="span9" data-pjax-container>
+            <div class="span13" data-pjax-container>
               <% flash.each do |name, msg| %>
                 <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert #{class_for_alert(name)}" %>
               <% end %>
 
               <%= yield %>
             </div>
-            <div class="span1">&nbsp;</div>
-            <div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Sidebar</h3>
-                <ul class="nav nav-list">
-                    <li class="nav-header">Sidebar</li>
-                    <li><%= link_to "Link1", "/path1"  %></li>
-                    <li><%= link_to "Link2", "/path2"  %></li>
-                    <li><%= link_to "Link3", "/path3"  %></li>
-                </ul>
-            </div>
-           </div>
           </div>
         </div>
 
