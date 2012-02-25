@@ -41,8 +41,6 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-rails-assets'
   gem 'factory_girl_rails'
-  gem 'yard'
-  gem 'redcarpet'
 end
 
 group :test do 
