@@ -31,6 +31,8 @@ class ReceiptProcessor
     end
 
     receipt.process!
+
+    true
   end
 
   # Find a receipt by id, create an instance of the processor and run
