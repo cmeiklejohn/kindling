@@ -3,7 +3,7 @@ Given /^a registered user$/ do
 end
 
 Given /^a valid receipt from Amazon for an ebook for that user$/ do
-  file     = File.read(File.join(Rails.root, 'spec/support/receipts/valid_amazon_receipt.txt'))
+  file     = File.read(File.join(Rails.root, 'spec/support/receipts/valid_amazon_receipt.html'))
   @receipt = Factory.create(:receipt, :email => @user.email, :body => file)
 end
 
@@ -34,7 +34,7 @@ Then /^the receipt should not be marked as rejected$/ do
 end
 
 Given /^a valid receipt from Amazon for an ebook for another user$/ do
-  file     = File.read(File.join(Rails.root, 'spec/support/receipts/valid_amazon_receipt.txt'))
+  file     = File.read(File.join(Rails.root, 'spec/support/receipts/valid_amazon_receipt.html'))
   @receipt = Factory.create(:receipt, :email => 'no-email@gmail.com', :body => file)
 end
 
