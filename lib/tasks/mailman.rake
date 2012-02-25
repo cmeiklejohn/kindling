@@ -17,6 +17,7 @@ namespace :mailman do
       Mailman::Application.run do
         default do
           begin
+            Mailman.logger.error "Received message!"
             Receipt.receive(message)
           rescue Exception => e
             Mailman.logger.error "Exception occurred while receiving message:\n#{message}"
