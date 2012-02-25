@@ -16,3 +16,6 @@
 
 # Ignore env specifics.
 env
+
+# Ignore coverage.
+coverage

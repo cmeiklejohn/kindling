@@ -48,6 +48,7 @@ end
 group :test do 
   gem 'capybara-webkit'
   gem 'cucumber-rails', '~> 1.1.1', require: false
+  gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
