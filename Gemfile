@@ -32,6 +32,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'kumade'
 
+gem 'nokogiri'
+
 group :development, :test do 
   gem 'sqlite3'
   gem 'rspec-rails'

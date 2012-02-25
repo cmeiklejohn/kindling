@@ -265,6 +265,7 @@ DEPENDENCIES
   kumade
   less
   mailman
+  nokogiri
   omniauth
   pg
   pjax-rails
