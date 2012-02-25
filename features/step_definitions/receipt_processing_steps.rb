@@ -15,7 +15,7 @@ When /^the receipt processor runs$/ do
 end
 
 Then /^an record should be created for that item$/ do
-  @item = Item.find_by_title('The Dip: A Little Book That Teaches You When to Quit (and When to Stick)')
+  @item = Item.find_by_title_and_product_url('The Dip: A Little Book That Teaches You When to Quit (and When to Stick)', 'http://www.amazon.com/gp/product/B000QCSA54')
 
   @item.should_not be_nil
   @receipt.item.should == @item
