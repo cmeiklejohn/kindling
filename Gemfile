@@ -34,6 +34,8 @@ gem 'kumade'
 
 gem 'nokogiri'
 
+gem 'mail'
+
 group :development, :test do 
   gem 'sqlite3'
   gem 'rspec-rails'
