@@ -7,6 +7,11 @@ Given /^a valid receipt from Amazon for an ebook for that user$/ do
   @receipt = Factory.create(:receipt, :email => @user.email, :body => file)
 end
 
+Given /^a valid forwarded multipart receipt from Amazon for an ebook for that user$/ do
+  file     = File.read(File.join(Rails.root, 'spec/support/receipts/valid_forwarded_multipart_amazon_receipt.html'))
+  @receipt = Factory.create(:receipt, :email => @user.email, :body => file)
+end
+
 When /^the receipt processor runs$/ do
   ReceiptProcessor.perform(@receipt.id)
 
