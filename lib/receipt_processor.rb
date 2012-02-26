@@ -8,29 +8,16 @@ class ReceiptProcessor
     @receipt = receipt
   end
 
-  # Given a {{Receipt}}, take it's body, grep for Kindle editions, and
-  # create {{Item}} and {{ItemOwnership}} records for the user if the
-  # user exists.
+  # Process a given receipt.
   #
-  # @param  [Receipt]
   # @return [Boolean]
   #
   def perform
-    if user = User.find_by_email(receipt.email)
-
-      receipt.lines.map do |line|
-        if contains_product?(line)
-          if item = Item.for_product(extract_attributes(line))
-            receipt.for_item!(item.id) && user.acquire!(item)
-          end
-        end
-      end
-
+    if user = User.for_receipt(receipt)
+      receipt.process! && perform_for_user(user)
     else
       receipt.reject!
     end
-
-    receipt.process!
 
     true
   end
@@ -48,6 +35,31 @@ class ReceiptProcessor
   end
 
   private 
+
+  # For a particular {{User}}, create an {{Item}} and an
+  # {{ItemOwnership}} for each item that they've purchased. 
+  #
+  # @param  [User]
+  # @return [Array<Boolean>]
+  # @private 
+  #
+  def perform_for_user(user)
+    receipt.to_mail.tap do |mail|
+
+      mail_to_parts(mail).map do |part|
+        part.split("\n").map do |line|
+
+          if contains_product?(line)
+            if item = Item.for_product(extract_attributes(line))
+              receipt.for_item!(item.id) && user.acquire!(item)
+            end
+          end
+
+        end
+      end
+
+    end
+  end 
 
   # Given a line containing a product, extract attributes needed to
   # create an item in our database.
@@ -106,6 +118,17 @@ class ReceiptProcessor
   #
   def clean(line)
     line.chomp.strip
+  end
+
+  # Take a mail object and map to it's body, or the body of all of it's
+  # parts.
+  #
+  # @param  [Mail]
+  # @return [Array<String>]
+  # @private 
+  #
+  def mail_to_parts(mail)
+    mail.parts.empty? ? [mail.to_s] : mail.parts.map { |part| part.to_s } 
   end
 
 end

@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def acquire!(item)
     items << item
   end
+
+  def self.for_receipt(receipt)
+    User.find_by_email(receipt.email)
+  end
 end

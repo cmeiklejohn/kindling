@@ -3,6 +3,12 @@ class Receipt < ActiveRecord::Base
 
   belongs_to :item
 
+  def self.receive(message)
+    if receipt = self.find_or_create_by_email_and_body(message.from.first, message.body.decoded)
+      ReceiptProcessor.perform(receipt.id)
+    end
+  end
+
   def lines
     body.split("\n")
   end
@@ -19,9 +25,7 @@ class Receipt < ActiveRecord::Base
     update_attribute(:item_id, item_id)
   end
 
-  def self.receive(message)
-    if receipt = self.find_or_create_by_email_and_body(message.from.first, message.body.decoded)
-      ReceiptProcessor.perform(receipt.id)
-    end
+  def to_mail
+    Mail.read_from_string(body)
   end
 end
